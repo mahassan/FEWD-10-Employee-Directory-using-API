@@ -1,8 +1,15 @@
-const app = document.getElementById("app")
+const app = document.getElementById("app");
+const mBody = document.getElementById("modal--content");
+const modal = document.getElementById("modal");
 loadAllEvents();
 
 function loadAllEvents(){
+    //modal will be displayed none
+    modal.style.display = "none";
+    //load XHR request
     document.addEventListener("DOMContentLoaded", loadRequest)
+    //modal load content
+    document.addEventListener("click", loadModal)
 }
 
 function loadRequest(){
@@ -18,9 +25,8 @@ function loadRequest(){
         // Email
         // City
         for(let person in result){
-            result[person].cell
            output += `
-           <a href='#'>
+           <a href='#' id="loadModal">
             <div class="card">
                 <div>
                     <img  class="card-img" src="${result[person].picture.medium}"
@@ -39,4 +45,8 @@ function loadRequest(){
         app.innerHTML = output;
     }
     xhr.send();
+}
+function loadModal(){
+    console.log("loaded");
+    modal.style.display = "block";
 }

@@ -60,6 +60,11 @@ a {
   left: 50%;
   top: 50%;
   transform: translate(-50%, 0);
+  padding: 10px;
+}
+.modal--header {
+  display: flex;
+  justify-content: flex-end;
 }
 
 /*# sourceMappingURL=index.css.map */
