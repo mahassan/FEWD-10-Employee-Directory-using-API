@@ -7,7 +7,7 @@ function loadAllEvents(){
 
 function loadRequest(){
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://randomuser.me/api/", true);
+    xhr.open("GET", "https://randomuser.me/api/?results=20", true);
     xhr.onload = function (){
         const response = JSON.parse(this.responseText);
         const result = response.results;
@@ -20,9 +20,10 @@ function loadRequest(){
         for(let person in result){
             result[person].cell
            output += `
+           <a href='#'>
             <div class="card">
-                <div class="card-img">
-                    <img src="${result[person].picture.medium}"
+                <div>
+                    <img  class="card-img" src="${result[person].picture.medium}"
                     alt="${result[person].name.first} ${result[person].name.last}"/>
                 </div>
                 <div class="card-info">
@@ -31,6 +32,7 @@ function loadRequest(){
                     <p>${result[person].location.city}</p>
                 </div>
             </div>
+            </a>
            `
         }
 

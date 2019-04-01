@@ -1,4 +1,25 @@
-#app{
+.container{
     display: flex;
-    border: 1px solid red;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    max-width: 1900px;
+    height: 700px;
+
+    .card{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        flex: 1 300px;
+        width: 400px;
+        border: 1px solid lightgray;
+        border-radius: 5px;
+        margin: 15px;
+        &-img{
+            border-radius: 50px;
+            margin-right:10px;
+        }
+    }
 }

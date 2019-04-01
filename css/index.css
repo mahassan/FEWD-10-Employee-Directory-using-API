@@ -1,8 +1,42 @@
-@import url("resets");
-@import url("typography");
-@import url("layout.scss");
-@import url("header");
-@import url("icons");
-@import url("cards");
+@import 'https://fonts.googleapis.com/css?family=Heebo';
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Heebo", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #878787;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  max-width: 1900px;
+  height: 700px;
+}
+.container .card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex: 1 300px;
+  width: 400px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin: 15px;
+}
+.container .card-img {
+  border-radius: 50px;
+  margin-right: 10px;
+}
 
 /*# sourceMappingURL=index.css.map */
