@@ -54,18 +54,20 @@ function loadModal(){
     // Cell Number
     // Detailed Address, including street name and number, city, state and post code.
     // Birthdate
-    console.log(result);
     let data;
      data+=
      `
-     <div>
-     <p>Name : ${result.name.first} ${result.name.last}</p>
-     <p>Email :${result.email}</p>
-     <p>Phone :${result.phone}<p>
-     <p>Street :${result.location.street}</p>
-     <p>City : ${result.location.city}</p>
-     <p>State :${result.location.state}</p>
-     <p>Postcode :${result.location.postcode}</p>
+     <div class="modal--card">
+     <img class="modal--img" src="${result.picture.large}"
+     alt="${result.name.first} ${result.name.last}"/>
+     <p>${result.name.first} ${result.name.last}</p>
+     <p>${result.email}</p>
+     <p>${result.location.city}</p>
+     <hr>
+     <p>${result.phone}<p>
+     <p>${result.location.street}</p>
+     <p>${result.location.state}</p>
+     <p>${result.location.postcode}</p>
      </div>
      `
      mBody.innerHTML = data;

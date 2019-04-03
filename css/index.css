@@ -3,7 +3,7 @@
   box-sizing: border-box;
 }
 
-html {
+html, p {
   margin: 0;
   padding: 0;
   font-family: "Heebo", sans-serif;
@@ -65,6 +65,26 @@ a {
 .modal--header {
   display: flex;
   justify-content: flex-end;
+}
+.modal--card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal--img {
+  border-radius: 50%;
+  margin-bottom: 30px;
+}
+.modal p, .modal hr {
+  color: #878787;
+}
+.modal p {
+  line-height: 2;
+}
+.modal hr {
+  border: 1px solid lightgray;
+  width: 80%;
 }
 
 /*# sourceMappingURL=index.css.map */

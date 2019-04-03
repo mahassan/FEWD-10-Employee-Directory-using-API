@@ -24,4 +24,25 @@
         display: flex;
         justify-content: flex-end;
     }
+    &--card{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    &--img{
+        border-radius: 50%;
+        margin-bottom: 30px;
+    }
+    p,hr{
+        color: darken(lightgray,30%);
+    }
+    p{
+        line-height: 2;
+    }
+    hr{
+        border:1px solid lightgray;
+        width: 80%;
+    }
+
 }
