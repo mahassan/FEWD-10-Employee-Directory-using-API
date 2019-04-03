@@ -3,7 +3,6 @@ const mBody = document.getElementById("modal--content");
 const modal = document.getElementById("modal");
 const anchor = document.querySelector("#modal--header").children[0];
 let result;
-let modalState = modal;
 loadAllEvents();
 
 function loadAllEvents(){
@@ -12,7 +11,7 @@ function loadAllEvents(){
     //load XHR request
     document.addEventListener("DOMContentLoaded", loadRequest)
     //modal load content
-    document.addEventListener("click", loadModal);
+    app.addEventListener("click", loadModal);
     //close
     anchor.addEventListener("click", closeModal)
 }
@@ -76,10 +75,12 @@ function loadModal(){
      `
      mBody.innerHTML = data;
     })
-    modalState.style.display = "block";
+    modal.style.display = "block";
+    if(modal.style.display = "block"){
+        modalState = true;
+    }
 }
 
 function closeModal(){
-    modalState.style.display = "none"
-    console.log("click");
+    modal.style.display = "none"
 };
