@@ -1,6 +1,7 @@
 const app = document.getElementById("app");
 const mBody = document.getElementById("modal--content");
 const modal = document.getElementById("modal");
+let result;
 loadAllEvents();
 
 function loadAllEvents(){
@@ -17,8 +18,7 @@ function loadRequest(){
     xhr.open("GET", "https://randomuser.me/api/?results=20", true);
     xhr.onload = function (){
         const response = JSON.parse(this.responseText);
-        const result = response.results;
-        console.log(result);
+         result = response.results;
         let output = '';
         // Image
         // First and Last name
@@ -47,6 +47,28 @@ function loadRequest(){
     xhr.send();
 }
 function loadModal(){
-    console.log("loaded");
+    result.forEach((result)=> {
+    // Image
+    // Name
+    // Email
+    // Cell Number
+    // Detailed Address, including street name and number, city, state and post code.
+    // Birthdate
+    console.log(result);
+    let data;
+     data+=
+     `
+     <div>
+     <p>Name : ${result.name.first} ${result.name.last}</p>
+     <p>Email :${result.email}</p>
+     <p>Phone :${result.phone}<p>
+     <p>Street :${result.location.street}</p>
+     <p>City : ${result.location.city}</p>
+     <p>State :${result.location.state}</p>
+     <p>Postcode :${result.location.postcode}</p>
+     </div>
+     `
+     mBody.innerHTML = data;
+    })
     modal.style.display = "block";
 }
