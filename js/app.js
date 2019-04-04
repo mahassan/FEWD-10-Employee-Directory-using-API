@@ -16,7 +16,8 @@ function loadAllEvents(){
     anchor.addEventListener("click", closeModal)
 }
 
-function loadRequest(){
+function loadRequest(e){
+    e.preventDefault();
     const xhr = new XMLHttpRequest();
     xhr.open("GET", "https://randomuser.me/api/?results=20", true);
     xhr.onload = function (){
@@ -30,7 +31,7 @@ function loadRequest(){
         // City
         for(let person in result){
            output += `
-           <a href='#' id="loadModal">
+           <a href='#${person}' id="loadModal">
             <div class="card">
                 <div>
                     <img  class="card-img" src="${result[person].picture.medium}"
@@ -47,13 +48,15 @@ function loadRequest(){
         }
 
         app.innerHTML = output;
+        
     }
     xhr.send();
 }
-function loadModal(){
+function loadModal(e){
     let data;
+   if(e.target.classList.contains("card")){
     for(let index in result){
-        data+=
+        data=
         `
         <div class="modal--card">
         <img class="modal--img" src="${result[index].picture.large}"
@@ -71,6 +74,7 @@ function loadModal(){
     }
     mBody.innerHTML = data;
     modal.style.display = "block";
+   }
     // result.forEach((result, index)=
     //  {
     // // Image
