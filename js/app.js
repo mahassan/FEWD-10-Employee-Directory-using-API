@@ -22,6 +22,7 @@ function loadRequest(){
     xhr.onload = function (){
         const response = JSON.parse(this.responseText);
          result = response.results;
+         //console.log(result);
         let output = '';
         // Image
         // First and Last name
@@ -50,35 +51,38 @@ function loadRequest(){
     xhr.send();
 }
 function loadModal(){
-    result.forEach((result)=> {
-    // Image
-    // Name
-    // Email
-    // Cell Number
-    // Detailed Address, including street name and number, city, state and post code.
-    // Birthdate
     let data;
-     data+=
-     `
-     <div class="modal--card">
-     <img class="modal--img" src="${result.picture.large}"
-     alt="${result.name.first} ${result.name.last}"/>
-     <p>${result.name.first} ${result.name.last}</p>
-     <p>${result.email}</p>
-     <p>${result.location.city}</p>
-     <hr>
-     <p>${result.phone}<p>
-     <p>${result.location.street}</p>
-     <p>${result.location.state}</p>
-     <p>${result.location.postcode}</p>
-     </div>
-     `
-     mBody.innerHTML = data;
-    })
-    modal.style.display = "block";
-    if(modal.style.display = "block"){
-        modalState = true;
+    for(let index in result){
+        data+=
+        `
+        <div class="modal--card">
+        <img class="modal--img" src="${result[index].picture.large}"
+        alt="${result[index].name.first} ${result[index].name.last}"/>
+        <p>${result[index].name.first} ${result[index].name.last}</p>
+        <p>${result[index].email}</p>
+        <p>${result[index].location.city}</p>
+        <hr>
+        <p>${result[index].phone}<p>
+        <p>${result[index].location.street}</p>
+        <p>${result[index].location.state}</p>
+        <p>${result[index].location.postcode}</p>
+        </div>
+        `
     }
+    mBody.innerHTML = data;
+    modal.style.display = "block";
+    // result.forEach((result, index)=
+    //  {
+    // // Image
+    // // Name
+    // // Email
+    // // Cell Number
+    // // Detailed Address, including street name and number, city, state and post code.
+    // // Birthdate
+    // // console.log(result , index);
+   
+     
+    // })
 }
 
 function closeModal(){
