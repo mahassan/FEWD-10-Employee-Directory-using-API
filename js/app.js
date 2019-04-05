@@ -31,8 +31,8 @@ function loadRequest(e){
         // City
         for(let person in result){
            output += `
-           <a href='#${person}' id="loadModal">
-            <div class="card">
+           <a href='#' id="loadModal">
+            <div class="card" data-index="${person}">
                 <div>
                     <img  class="card-img" src="${result[person].picture.medium}"
                     alt="${result[person].name.first} ${result[person].name.last}"/>
@@ -54,25 +54,32 @@ function loadRequest(e){
 }
 function loadModal(e){
     let data;
+     let cardIndex = e.target.getAttribute("data-index");
    if(e.target.classList.contains("card")){
-    for(let index in result){
         data=
         `
         <div class="modal--card">
-        <img class="modal--img" src="${result[index].picture.large}"
-        alt="${result[index].name.first} ${result[index].name.last}"/>
-        <p>${result[index].name.first} ${result[index].name.last}</p>
-        <p>${result[index].email}</p>
-        <p>${result[index].location.city}</p>
+        <img class="modal--img" src="${result[cardIndex].picture.large}"
+        alt="${result[cardIndex].name.first} ${result[cardIndex].name.last}"/>
+        <p>${result[cardIndex].name.first} ${result[cardIndex].name.last}</p>
+        <p>${result[cardIndex].email}</p>
+        <p>${result[cardIndex].location.city}</p>
         <hr>
-        <p>${result[index].phone}<p>
-        <p>${result[index].location.street}</p>
-        <p>${result[index].location.state}</p>
-        <p>${result[index].location.postcode}</p>
+        <p>${result[cardIndex].phone}<p>
+        <p>${result[cardIndex].location.street}</p>
+        <p>${result[cardIndex].location.state}</p>
+        <p>${result[cardIndex].location.postcode}</p>
         </div>
         `
-    }
     mBody.innerHTML = data;
+    //Might do EE later
+    // pre.addEventListener("click", function(){
+    //    if(result.length < 1){
+    //       console.log("no result");
+    //    }else{
+    //        console.log(result.length--);
+    //    }
+    // })
     modal.style.display = "block";
    }
     // result.forEach((result, index)=
