@@ -24,11 +24,16 @@ function loadRequest(e){
         const response = JSON.parse(this.responseText);
          result = response.results;
          //console.log(result);
-        let output = '';
+        let output = `
+        <div style="width: 100%;">
+        <h4>AWESOME STARTUP EMPLOYEE DIRECTORY</h4>
+        </div>
+        `;
         // Image
         // First and Last name
         // Email
         // City
+        // Birthday
         for(let person in result){
            output += `
            <a href='#' id="loadModal">
@@ -69,6 +74,7 @@ function loadModal(e){
         <p>${result[cardIndex].location.street}</p>
         <p>${result[cardIndex].location.state}</p>
         <p>${result[cardIndex].location.postcode}</p>
+        <p>${new Date(Date.parse(result[cardIndex].dob.date)).toLocaleDateString(navigator.language)}</p>
         </div>
         `
     mBody.innerHTML = data;

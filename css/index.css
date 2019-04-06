@@ -17,7 +17,7 @@ a {
 .container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   margin: auto;
   max-width: 1900px;
@@ -32,7 +32,7 @@ a {
   width: 400px;
   border: 1px solid lightgray;
   border-radius: 5px;
-  margin: 15px;
+  margin: 10px;
 }
 .container .card-img {
   border-radius: 50px;
